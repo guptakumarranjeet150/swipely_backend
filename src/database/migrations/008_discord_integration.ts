@@ -137,9 +137,9 @@ export async function up(knex: Knex): Promise<void> {
       p_severity TEXT,
       p_title TEXT,
       p_description TEXT,
-      p_metadata JSONB DEFAULT NULL,
       p_guild_id TEXT,
       p_channel_id TEXT,
+      p_metadata JSONB DEFAULT NULL,
       p_message_id TEXT DEFAULT NULL,
       p_delivered BOOLEAN DEFAULT false,
       p_error_message TEXT DEFAULT NULL
@@ -294,8 +294,8 @@ export async function down(knex: Knex): Promise<void> {
   await knex.raw("DROP TRIGGER IF EXISTS trigger_update_guild_activity_alert ON discord_alerts_log");
   await knex.raw("DROP TRIGGER IF EXISTS trigger_update_guild_activity_command ON discord_commands_usage");
   await knex.raw("DROP FUNCTION IF EXISTS update_guild_activity()");
-  await knex.raw("DROP FUNCTION IF EXISTS log_discord_alert(...)");
-  await knex.raw("DROP FUNCTION IF EXISTS log_discord_command_usage(...)");
+  await knex.raw("DROP FUNCTION IF EXISTS log_discord_alert");
+  await knex.raw("DROP FUNCTION IF EXISTS log_discord_command_usage");
   await knex.raw("DROP FUNCTION IF EXISTS cleanup_discord_logs(INTEGER)");
 
   // Drop tables
