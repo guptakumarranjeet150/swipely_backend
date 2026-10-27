@@ -2,10 +2,7 @@ node_modules/
 dist/
 
 # Environment variables
-.env
-.env.*
 !.env.example
-.env.local
 .env.*.local
 
 # Logs
@@ -24,7 +21,6 @@ coverage/
 
 # IDE / Editor
 .idea/
-.vscode/
 *.swp
 *.swo
 *~
@@ -36,3 +32,4 @@ tsc_errors.txt
 *.seed
 *.pid.lock
 *.tsbuildinfo
+config.bat
